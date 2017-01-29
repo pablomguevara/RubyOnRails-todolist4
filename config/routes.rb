@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
-  resources :todo_items
+  
+  # Nested resource
+  resources :todo_lists do
+    resources :todo_items
+  end
+
   resources :profiles
-  resources :todo_lists
+  
   resources :users
+
+  root to: "todo_lists#index"
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

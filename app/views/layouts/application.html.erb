@@ -6,6 +6,12 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
+<!-- Move flash to layout -->
+<% flash.each do |key,val| %>
+  <p id='<%= key %>'><%= value %></p>
+<% end %>
+
 <body>
 
 <%= yield %>
